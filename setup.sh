@@ -22,7 +22,8 @@ wget -O pytorch_model.bin https://s3.amazonaws.com/models.huggingface.co/bert/ro
 wget -O config.json https://s3.amazonaws.com/models.huggingface.co/bert/roberta-base-config.json
 
 # Add "output_hidden_state" : true to the roberta config
-sed 's/\( *\)"vocab_size\": \([0-9]*\)/\1"vocab_size\": \2,\n\1"output_hidden_states": true/' config.json > config.json
+sed 's/\( *\)"vocab_size\": \([0-9]*\)/\1"vocab_size\": \2,\n\1"output_hidden_states": true/' config.json > config2.json
+mv config2.json config.json
 
 wget -O vocab.json https://s3.amazonaws.com/models.huggingface.co/bert/roberta-base-vocab.json
 
